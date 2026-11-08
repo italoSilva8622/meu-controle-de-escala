@@ -1,0 +1,146 @@
+:root {
+    --fundo: #08090B;
+    --painel: #101115;
+    --destaque: #FF1738;
+    --texto: #F5F5F7;
+    --secundario: #B8BBC5;
+    --borda: #25262D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 36px 18px;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "Inter", sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+.main-principal {
+    width: min(100%, 600px);
+    margin: 0 auto;
+}
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: var(--destaque);
+    font-size: .70rem;
+    font-weight: 800;
+    letter-spacing: .2em;
+}
+
+h1 {
+    margin-top: 7px;
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: -.06em;
+}
+
+label {
+    display: block;
+    margin: 16px 0 8px;
+    color: var(--texto);
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+label input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+    background: #17181e;
+    color: var(--texto);
+}
+
+label input:focus {
+    border-color: var(--destaque);
+}
+
+.btn-login {
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: .8rem;
+    font-weight: 700;
+    background: var(--destaque);
+    color: var(--texto);
+    border: 1px solid var(--destaque);
+    width: min(100%, 600px);
+    margin: 10px auto;
+}
+
+.form-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    font-size: .75rem;
+}
+
+.logged-in {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.logged-in span{
+    margin-left: 5px;
+}
+
+.esquecir-senha{
+    padding: 10px;
+    text-decoration: none;
+    color: var(--texto)
+}
+
+.linha {
+    border: none;
+    height: 1px;
+    background-color: var(--borda);
+    margin-top: 10px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link-01,
+.link-02 {
+    text-decoration: none;
+    margin: 11px auto;
+    color: var(--secundario);
+}
+
+.link-02{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(100%, 600px);
+    height: 45px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    
+   /*  border: 1px solid var(--borda);
+    width: min(100%, 600px);
+    text-align: center; 
+    border-radius: 10px;
+    height: 45px; */
+}
