@@ -1,0 +1,481 @@
+:root {
+    --fundo: #08090B;
+    --painel: #101115;
+    --destaque: #FF1738;
+    --texto: #F5F5F7;
+    --secundario: #B8BBC5;
+    --borda: #25262D;
+    --trabalho: #25262D;
+    --folga: #8B641D;
+    --atestado: #245B91;
+    --feriado: #68448E;
+    --ferias: #176D68;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 36px 18px;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "Inter", sans-serif;
+}
+
+button,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.app {
+    width: min(100%, 920px);
+    margin: 0 auto;
+}
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: var(--destaque);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+
+h1 {
+    margin-top: 7px;
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: -.06em;
+}
+
+h1 span {
+    color: var(--destaque);
+}
+
+.subtitulo {
+    margin-top: 7px;
+    color: var(--secundario);
+    font-size: .92rem;
+}
+
+.marca {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border: 1px solid #51202B;
+    border-radius: 16px;
+    color: var(--destaque);
+    font-weight: 800;
+}
+
+.painel,
+.resumo {
+    padding: 24px;
+    background: var(--painel);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+}
+
+.calendario-cabecalho,
+.resumo-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+h2 {
+    margin-top: 6px;
+    font-size: 1.35rem;
+    letter-spacing: -.04em;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-icone,
+.btn-hoje {
+    height: 38px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: #17181E;
+    color: var(--texto);
+}
+
+.btn-icone {
+    width: 38px;
+    font-size: 1.5rem;
+}
+
+.btn-hoje {
+    padding: 0 13px;
+    font-size: .8rem;
+}
+
+.btn-icone:hover,
+.btn-hoje:hover {
+    border-color: var(--destaque);
+}
+
+.dias-semana,
+.calendario {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.dias-semana {
+    margin-bottom: 9px;
+}
+
+.dias-semana span {
+    padding: 8px 0;
+    color: #858894;
+    text-align: center;
+    font-size: .68rem;
+    font-weight: 700;
+}
+
+.dia {
+    position: relative;
+    min-height: 76px;
+    padding: 10px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: #17181E;
+    color: var(--texto);
+    text-align: left;
+    transition: .15s ease;
+}
+
+.dia:hover {
+    transform: translateY(-2px);
+    border-color: #777985;
+}
+
+.dia .numero {
+    display: block;
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.dia .status {
+    display: block;
+    margin-top: 9px;
+    overflow: hidden;
+    color: #D7D8DE;
+    font-size: .65rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dia.trabalho {
+    border-top: 3px solid #777985;
+}
+
+.dia.folga {
+    border-top: 3px solid #D7A33C;
+    background: #211B11;
+}
+
+.dia.atestado {
+    border-top: 3px solid #55A5E9;
+    background: #111D2A;
+}
+
+.dia.feriado {
+    border-top: 3px solid #B18ADD;
+    background: #1D1726;
+}
+
+.dia.ferias {
+    border-top: 3px solid #4FC4B9;
+    background: #112321;
+}
+
+.dia.hoje::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--destaque);
+}
+
+.legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    margin-top: 20px;
+    color: var(--secundario);
+    font-size: .72rem;
+}
+
+.legenda span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.ponto {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    background: #777985;
+}
+
+.ponto.folga {
+    background: #D7A33C;
+}
+
+.ponto.atestado {
+    background: #55A5E9;
+}
+
+.ponto.feriado {
+    background: #B18ADD;
+}
+
+.ponto.ferias {
+    background: #4FC4B9;
+}
+
+.resumo {
+    margin-top: 18px;
+}
+
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.card-resumo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 17px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: #17181E;
+}
+
+.mini-icone {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    margin-bottom: 13px;
+    border-radius: 8px;
+    background: #2B171D;
+    color: var(--destaque);
+    font-weight: 800;
+}
+
+.card-resumo strong {
+    font-size: 1.8rem;
+}
+
+.card-resumo small {
+    margin-top: 3px;
+    color: var(--secundario);
+    font-size: .72rem;
+}
+
+footer {
+    padding: 22px 0 4px;
+    color: #777985;
+    text-align: center;
+    font-size: .72rem;
+}
+
+.modal {
+    width: min(calc(100% - 30px), 440px);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    background: var(--painel);
+    color: var(--texto);
+}
+
+.modal::backdrop {
+    background: #000B;
+    backdrop-filter: blur(4px);
+}
+
+.modal form {
+    padding: 24px;
+}
+
+.modal-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.fechar {
+    border: 0;
+    background: transparent;
+    color: var(--secundario);
+    font-size: 1.8rem;
+}
+
+label {
+    display: block;
+    margin: 16px 0 8px;
+    color: var(--texto);
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+label span {
+    color: var(--secundario);
+    font-weight: 400;
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+    background: #17181E;
+    color: var(--texto);
+}
+
+select:focus,
+textarea:focus {
+    border-color: var(--destaque);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.modal-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 22px;
+}
+
+.btn-secundario,
+.btn-principal {
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.btn-secundario {
+    border: 1px solid var(--borda);
+    background: transparent;
+    color: var(--texto);
+}
+
+.btn-principal {
+    border: 1px solid var(--destaque);
+    background: var(--destaque);
+    color: white;
+}
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px 16px;
+    border: 1px solid #344D3E;
+    border-radius: 10px;
+    background: #14231A;
+    color: #B8F0C9;
+    font-size: .82rem;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: .2s;
+}
+
+.toast.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 22px 10px;
+    }
+
+    .painel,
+    .resumo {
+        padding: 15px 11px;
+        border-radius: 15px;
+    }
+
+    .calendario,
+    .dias-semana {
+        gap: 4px;
+    }
+
+    .dia {
+        min-height: 62px;
+        padding: 7px 5px;
+        border-radius: 8px;
+    }
+
+    .dia .numero {
+        font-size: .8rem;
+    }
+
+    .dia .status {
+        margin-top: 7px;
+        font-size: .55rem;
+    }
+
+    .dias-semana span {
+        font-size: .58rem;
+    }
+
+    .legenda {
+        gap: 10px 12px;
+        font-size: .65rem;
+    }
+
+    .cards-resumo {
+        gap: 7px;
+    }
+
+    .card-resumo {
+        padding: 11px 9px;
+    }
+
+    .card-resumo strong {
+        font-size: 1.45rem;
+    }
+
+    .card-resumo small {
+        font-size: .62rem;
+    }
+}

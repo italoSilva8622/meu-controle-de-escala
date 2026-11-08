@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090B">
+  <title>Meu Controle de Escala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topo">
+      <div>
+        <span class="eyebrow">ORGANIZAÇÃO PESSOAL</span>
+        <h1>Minha <span>Escala</span></h1>
+        <p class="subtitulo">Organize seus dias de trabalho e folga.</p>
+      </div>
+      <div class="marca" aria-hidden="true">ES</div>
+    </header>
+
+    <section class="painel">
+      <div class="calendario-cabecalho">
+        <div>
+          <span class="eyebrow">CALENDÁRIO</span>
+          <h2 id="mesAno">Mês de ano</h2>
+        </div>
+        <div class="navegacao">
+          <button class="btn-icone" id="mesAnterior" aria-label="Mês anterior">‹</button>
+          <button class="btn-hoje" id="irHoje">Hoje</button>
+          <button class="btn-icone" id="proximoMes" aria-label="Próximo mês">›</button>
+        </div>
+      </div>
+
+      <div class="dias-semana" aria-hidden="true">
+        <span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span>
+        <span>QUI</span><span>SEX</span><span>SÁB</span>
+      </div>
+      <div class="calendario" id="calendario" aria-label="Calendário mensal"></div>
+
+      <div class="legenda">
+        <span><i class="ponto trabalho"></i>Trabalho</span>
+        <span><i class="ponto folga"></i>Folga</span>
+        <span><i class="ponto atestado"></i>Atestado</span>
+        <span><i class="ponto feriado"></i>Feriado</span>
+        <span><i class="ponto ferias"></i>Férias</span>
+      </div>
+    </section>
+
+    <section class="resumo">
+      <div class="resumo-topo">
+        <div><span class="eyebrow">VISÃO GERAL</span><h2>Resumo do mês</h2></div>
+      </div>
+      <div class="cards-resumo">
+        <article class="card-resumo"><span class="mini-icone">✓</span><strong id="totalTrabalho">0</strong><small>Trabalhados</small></article>
+        <article class="card-resumo"><span class="mini-icone">↗</span><strong id="totalFolga">0</strong><small>Folgas</small></article>
+        <article class="card-resumo"><span class="mini-icone">+</span><strong id="totalOutros">0</strong><small>Outros dias</small></article>
+      </div>
+    </section>
+
+    <footer>Seus registros ficam salvos neste navegador.</footer>
+  </main>
+
+  <dialog id="modalDia" class="modal">
+    <form method="dialog" id="formDia">
+      <div class="modal-topo">
+        <div><span class="eyebrow">EDITAR DIA</span><h2 id="tituloModal">Dia selecionado</h2></div>
+        <button type="button" class="fechar" id="fecharModal" aria-label="Fechar">×</button>
+      </div>
+
+      <label for="tipoDia">Situação</label>
+      <select id="tipoDia">
+        <option value="Trabalho">Trabalho</option>
+        <option value="Folga">Folga</option>
+        <option value="Atestado">Atestado</option>
+        <option value="Feriado">Feriado</option>
+        <option value="Férias">Férias</option>
+      </select>
+
+      <label for="observacao">Observação <span>(opcional)</span></label>
+      <textarea id="observacao" rows="3" placeholder="Ex.: troca de folga, compromisso..."></textarea>
+
+      <div class="modal-acoes">
+        <button type="button" class="btn-secundario" id="cancelar">Cancelar</button>
+        <button type="submit" class="btn-principal">Salvar alteração</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
