@@ -72,6 +72,44 @@ label input:focus {
     border-color: var(--destaque);
 }
 
+.password {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input input {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    border: 1px solid var(--borda);
+}
+
+.password-input button {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+.senha-password {
+    width: 15px;
+    color: var(--secundario);
+}
+
 .btn-login {
     padding: 11px 14px;
     border-radius: 10px;
@@ -98,11 +136,11 @@ label input:focus {
     margin-right: 10px;
 }
 
-.logged-in span{
+.logged-in span {
     margin-left: 5px;
 }
 
-.esquecir-senha{
+.esquecir-senha {
     padding: 10px;
     text-decoration: none;
     color: var(--texto)
@@ -128,7 +166,7 @@ label input:focus {
     color: var(--secundario);
 }
 
-.link-02{
+.link-02 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -137,8 +175,8 @@ label input:focus {
     height: 45px;
     border: 1px solid var(--borda);
     border-radius: 10px;
-    
-   /*  border: 1px solid var(--borda);
+
+    /*  border: 1px solid var(--borda);
     width: min(100%, 600px);
     text-align: center; 
     border-radius: 10px;

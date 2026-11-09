@@ -33,13 +33,18 @@
 
                     <label for="email">
                         <!-- Email -->
-                        <input type="email" placeholder="Digite seu email">
+                        <input type="email" placeholder="Digite seu email" id="email">
                     </label>
 
 
                     <label for="password">
                         <!-- Senha -->
-                        <input type="password" placeholder="Digite sua senha">
+                        <div class="password-input">
+                            <input type="password" placeholder="Digite sua senha" id="password">
+                            <button type="button" id="alternarSenha" aria-label="Mostrar senha"><img
+                                    src="./img/abre-o-olho.png" alt="Olho para mostrar a senha"
+                                    class="senha-password" id="iconeOlho"></button>
+                        </div>
                     </label>
 
                 </div>
@@ -50,12 +55,12 @@
 
                     <div class="logged-in">
                         <!-- <label for="logged-in"> -->
-                            <input type="checkbox" id="logged-in">
-                            <span class="">Stay logged in</span>
+                        <input type="checkbox" id="logged-in" class="checkbox">
+                        <span class="">Stay logged in</span>
                         <!-- </label> -->
                     </div>
 
-                    <a href="" class="esquecir-senha">Forogt your password?</a>
+                    <a href="" class="esquecir-senha">Forgot your password?</a>
 
                 </div>
 
@@ -65,7 +70,7 @@
 
             <div class="links">
 
-                <a href="" class="link-01">Don't have an account?</a>
+                <span class="link-01">Don't have an account?</span>
 
                 <a href="" class="link-02">Create an account</a>
 
@@ -76,5 +81,25 @@
     </main>
 
 </body>
+
+
+<script>
+    const inputSenha = document.getElementById("password")
+    const botaoToggle = document.getElementById("alternarSenha")
+    const iconOlho = document.getElementById("iconeOlho")
+
+    /* Evita que o clique no botão dispare comportamentos indesejados da label */
+    botaoToggle.addEventListener("click", function (evento) {
+        evento.preventDefault()
+
+        if (inputSenha.type === "password") {
+            inputSenha.type = "text"
+            iconOlho.src = "img/fechar-o-olho.png"
+        } else {
+            inputSenha.type = "password"
+            iconOlho.src = "img/abre-o-olho.png"
+        }
+    })
+</script>
 
 </html>
